@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1034780535242",
+    "project_id": "instagram-clone-course-naji",
+    "storage_bucket": "instagram-clone-course-naji.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034780535242:android:ecfc19a88a57a428d9c733",
+        "android_client_info": {
+          "package_name": "com.example.instagram_clone_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034780535242-qf7g5pqv15qa1nv9sj65enih2gs1frht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX74yDMPdNP6TG65POWePKveWgN6R2oSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034780535242-qf7g5pqv15qa1nv9sj65enih2gs1frht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
