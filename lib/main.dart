@@ -3,12 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_clone_course/state/auth/models/auth_result.dart';
 import 'package:instagram_clone_course/state/auth/providers/auth_state_provider.dart';
+import 'package:instagram_clone_course/state/providers/is_loading_provider.dart';
+import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
-import 'dart:developer' as devtools show log;
-
-extension Log on Object {
-  void log() => devtools.log(toString());
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,9 +37,23 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.dark,
       home: Consumer(
         builder: (context, ref, child) {
+          // take care of displaying the loading screen
+
+          ref.listen<bool>(
+            isLoadingProvider,
+            (_, isLoading) {
+              if (isLoading) {
+                LoadingScreen.instance().show(
+                  context: context,
+                );
+              } else {
+                LoadingScreen.instance().hide();
+              }
+            },
+          );
           final isLoggedIn =
               ref.watch(authStateProvider).result == AuthResult.success;
-          isLoggedIn.log();
+
           if (isLoggedIn) {
             return const MainView();
           } else {
