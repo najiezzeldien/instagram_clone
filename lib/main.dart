@@ -5,6 +5,7 @@ import 'package:instagram_clone_course/state/auth/models/auth_result.dart';
 import 'package:instagram_clone_course/state/auth/providers/auth_state_provider.dart';
 import 'package:instagram_clone_course/state/providers/is_loading_provider.dart';
 import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
+import 'package:instagram_clone_course/views/login/login_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -75,7 +76,7 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home View'),
+        title: const Text('Main View'),
       ),
       body: Consumer(
         builder: (context, ref, child) {
@@ -86,38 +87,6 @@ class MainView extends StatelessWidget {
             child: const Text("LogOut"),
           );
         },
-      ),
-    );
-  }
-}
-
-// for when you are not logged in
-class LoginView extends ConsumerWidget {
-  const LoginView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login View"),
-      ),
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).logInWithGoogle,
-            child: const Text(
-              "Sign in with Google",
-            ),
-          ),
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).logInWithFacebook,
-            child: const Text(
-              "Sign in with Facebook",
-            ),
-          ),
-        ],
       ),
     );
   }
