@@ -6,6 +6,7 @@ import 'package:instagram_clone_course/state/auth/providers/auth_state_provider.
 import 'package:instagram_clone_course/state/providers/is_loading_provider.dart';
 import 'package:instagram_clone_course/views/components/loading/loading_screen.dart';
 import 'package:instagram_clone_course/views/login/login_view.dart';
+import 'package:instagram_clone_course/views/main/main_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -60,32 +61,6 @@ class App extends StatelessWidget {
           } else {
             return const LoginView();
           }
-        },
-      ),
-    );
-  }
-}
-
-// when you are already logged in
-class MainView extends StatelessWidget {
-  const MainView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main View'),
-      ),
-      body: Consumer(
-        builder: (context, ref, child) {
-          return TextButton(
-            onPressed: () async {
-              await ref.read(authStateProvider.notifier).logOut();
-            },
-            child: const Text("LogOut"),
-          );
         },
       ),
     );
