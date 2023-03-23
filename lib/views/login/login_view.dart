@@ -36,7 +36,7 @@ class LoginView extends ConsumerWidget {
               const DividerWithMargins(),
               Text(
                 Strings.logIntoYourAccount,
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       height: 1.5,
                     ),
               ),
